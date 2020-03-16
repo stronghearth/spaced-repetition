@@ -1,9 +1,10 @@
 .Login_header {
   margin: 30px 10px 10px 10px;
+  color: black;
 }
 
 .LoginForm {
-  border: 1px solid black;
+  border: 1px solid #CF751F;
   margin: 10px 10px;
 }
 
@@ -38,7 +39,8 @@
 }
 
 .Login_button:hover {
-  background-color: #8BAAAD;
+  border-color: #CF751F;
+  color: #CF751F;
 }
 
 @media (min-width: 700px) {

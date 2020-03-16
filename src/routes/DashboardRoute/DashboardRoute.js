@@ -12,10 +12,10 @@ class DashboardRoute extends Component {
         <header className='Dashboard_header'>
           Welcome, {this.context.user.name}
           <div className='Dashboard_language'>
-            You're learning: <span style={{color: 'red'}}>Catalan</span>
+            You're learning: <span style={{color: '#CE3814'}}>Catalan</span>
           </div>
           <div className='Dashboard_history'>
-            Brief history of language
+            The Catalan language originated from Vulgar Latin in the Pyrenees Mountains between France and Spain. It diverged from the other Romance languages in the 9th century.
           </div>
         </header>
        
@@ -44,11 +44,12 @@ class DashboardRoute extends Component {
         </div>
         
         <div className='Dashboard_learn'>
-          <button className='Dashboard_learn_button'>
-            <Link to='/learn' className='Dashboard_learn_link'>
+          <Link to='/learn' className='Dashboard_learn_link'>
+            <button className='Dashboard_learn_button'>
               Start Learning
-            </Link>
-          </button>
+            </button>
+          </Link>
+          
         </div>
         
       </section>
