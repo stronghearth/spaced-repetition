@@ -1,5 +1,6 @@
 .Dashboard_header,
-.Dashboard_total {
+.Dashboard_total,
+.Dashboard_knowledge {
   padding: 30px 0;
   text-align: center;
 }

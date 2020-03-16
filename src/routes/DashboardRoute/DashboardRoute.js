@@ -14,9 +14,6 @@ class DashboardRoute extends Component {
           <div className='Dashboard_language'>
             You're learning: <span style={{color: '#CE3814'}}>Catalan</span>
           </div>
-          <div className='Dashboard_history'>
-            The Catalan language originated from Vulgar Latin in the Pyrenees Mountains between France and Spain. It diverged from the other Romance languages in the 9th century.
-          </div>
         </header>
        
 
@@ -52,7 +49,12 @@ class DashboardRoute extends Component {
           </Link>
           
         </div>
-        
+        <div className='Dashboard_knowledge'>
+          Did you know? 
+          <div className='Dashboard_history'>
+            The Catalan language originated from Vulgar Latin in the Pyrenees Mountains between France and Spain. It diverged from the other Romance languages in the 9th century.
+          </div>
+        </div>
       </section>
     );
   }
