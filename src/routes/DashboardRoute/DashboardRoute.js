@@ -32,6 +32,7 @@ class DashboardRoute extends Component {
           </div>
          
           <TableRow 
+            key=''
             word='bon dia' 
             correct='0' 
             incorrect='0'

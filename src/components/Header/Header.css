@@ -48,14 +48,15 @@
 .Login:hover, .Signup:hover{
   background-color: #CE3814;
   color: white;
-  
-.Header_nav_user {
-  margin-bottom: 10px;
 }
 
+/* .Header_nav_user {
+  margin-bottom: 10px;
+} */
 
 
-@media (min-width: 700px) {
+
+@media screen and (min-width: 700px) {
   .Header {
     padding: 10px;
     flex-direction: row;
@@ -90,6 +91,7 @@
     background-color: #383738;
     color: #CE3814;
     cursor: pointer;
+  }
 
   .Header_nav_user {
     margin-right: 30px;
