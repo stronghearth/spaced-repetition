@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './LearningRoute.css'
 import Button from '../../components/Button/Button'
 
 class LearningRoute extends Component {
@@ -6,7 +7,7 @@ class LearningRoute extends Component {
   render() {
     return (
       <section className="lr-section">
-        <div className="lr-questionCard">
+        <div className="lr-questionCard wider">
               {/* dynamically inserted word */}
             <h2 className="lr-wordPrompt">Translate the word: Si us plau</h2>
             {/* create component for this */}
@@ -14,11 +15,13 @@ class LearningRoute extends Component {
               {/* capture value from this into state */}
               <input type="text" className="lr-answerInput" placeholder="Enter translation here"></input>
               {/* handleCheckAnswer function */}
+              <br />
               <Button type="submit">Check Answer</Button>
             </form>
         </div>
-        <div className="lr-wordStats">
+        <div className="lr-wordStats wider">
             {/* dynamically inserted word stats, updated when answers submitted */}
+            <h3>Your Word Stats</h3>
             <p className="lr-correctCount">You've answered this word correctly 15 times</p>
             <p className="lr-incorrectCount">You've answered this word incorrectly 5 times</p>
             <p className="lr-totalScore">Total Score: 45</p>

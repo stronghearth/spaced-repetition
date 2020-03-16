@@ -1,0 +1,29 @@
+.lr-section {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.lr-questionCard {
+    border: grey;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+}
+
+.lr-answerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lr-answerInput {
+    width: 95%;
+}
