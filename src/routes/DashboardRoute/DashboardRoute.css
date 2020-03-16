@@ -1,0 +1,89 @@
+.Dashboard_header,
+.Dashboard_total {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.Dashboard_header{
+  margin-top: 30px;
+  font-size: 26px;
+  padding: 20px;
+}
+
+.Dashboard_language {
+  font-size: 20px;
+}
+
+.Dashboard_history {
+  font-size: 14px;
+}
+
+.Dashboard_language,
+.Dashboard_history {
+  margin-top: 15px;
+}
+
+.DB_table {
+  display: flex;
+  /* display: table; */
+  flex-wrap: wrap;
+  margin: 0 3em 3em 3em;
+  padding: 0;
+}
+.DB_table_cell {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  box-sizing: border-box;
+  flex-grow: 1;
+  /* Default to full width */
+  width: 100%;  
+  padding: 0.8em 1.2em;
+  /* Or flex might break */
+  overflow: hidden; 
+  list-style: none;
+  border: 1px solid black;
+  /* background: fade(slategrey,20%); */
+  /* > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; } */
+}
+
+.Count {
+  margin: auto;
+}
+
+.DB_table_cell.Title {
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.DB_table--3cols > .DB_table_cell  { 
+  width: 33.33%; 
+}
+
+.Dashboard_learn {
+  margin: auto;
+  text-align: center;
+}
+
+.Dashboard_learn_link{
+  margin: 0px auto 20px auto;
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 30px;
+  display: flex;
+  width: fit-content;
+}
+
+.Dashboard_learn_link {
+  text-decoration: none;
+}
+
+.Dashboard_learn_button {
+  border: none;
+}
+
+.Dashboard_learn_link:hover {
+  color: #CF0A48;
+  border-color: #CF0A48;
+}

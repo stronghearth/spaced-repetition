@@ -42,15 +42,17 @@ class RegistrationForm extends Component {
     return (
       <form
         onSubmit={this.handleSubmit}
+        className='RegistrationForm'
       >
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
         <div>
-          <Label htmlFor='registration-name-input'>
+          <Label htmlFor='registration-name-input' className='Registration_label'>
             Enter your name<Required />
           </Label>
           <Input
+            className='Registration_input'
             ref={this.firstInput}
             id='registration-name-input'
             name='name'
@@ -58,32 +60,35 @@ class RegistrationForm extends Component {
           />
         </div>
         <div>
-          <Label htmlFor='registration-username-input'>
+          <Label htmlFor='registration-username-input' className='Registration_label'>
             Choose a username<Required />
           </Label>
           <Input
+            className='Registration_input'
             id='registration-username-input'
             name='username'
             required
           />
         </div>
         <div>
-          <Label htmlFor='registration-password-input'>
+          <Label htmlFor='registration-password-input' className='Registration_label'>
             Choose a password<Required />
           </Label>
           <Input
+            className='Registration_input'
             id='registration-password-input'
             name='password'
             type='password'
             required
           />
         </div>
-        <footer>
-          <Button type='submit'>
+        <footer className='Registration_footer'>
+          <Button type='submit' className='Registration_button'>
             Sign up
           </Button>
           {' '}
-          <Link to='/login'>Already have an account?</Link>
+          <Link to='/login' className='RR_toLogin'>
+            Already have an account?</Link>
         </footer>
       </form>
     )
