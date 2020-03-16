@@ -14,16 +14,17 @@ class RegistrationRoute extends Component {
   }
 
   render() {
-    return (
-      <section>
-        <p>
+    return ( <>
+      <p className="rr-appDescription">
           Practice learning a language with the spaced reptition revision technique.
-        </p>
+      </p>
+      <section className="formContainer">
         <h2>Sign up</h2>
-        <RegistrationForm
+        <RegistrationForm 
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
       </section>
+      </>
     );
   }
 }

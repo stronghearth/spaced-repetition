@@ -17,9 +17,9 @@ class LoginRoute extends Component {
 
   render() {
     return (
-      <section>
+      <section className="formContainer">
         <h2>Login</h2>
-        <LoginForm
+        <LoginForm 
           onLoginSuccess={this.handleLoginSuccess}
         />
       </section>

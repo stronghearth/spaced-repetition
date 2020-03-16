@@ -1,0 +1,27 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+.formContainer {
+    border-radius: 20px;
+    border-style: solid;
+    padding: 25px;
+    border-width: 1px;
+}
+
+.rr-appDescription {
+    line-height: 1.5em;
+    display: flex;
+    align-self: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+ul {
+    list-style: none;
+}
