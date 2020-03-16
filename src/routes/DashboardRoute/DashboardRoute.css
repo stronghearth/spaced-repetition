@@ -16,7 +16,10 @@
   font-size: 16px;
 }
 
-
+.Dashboard_language,
+.Dashboard_history {
+  margin-top: 10px;
+}
 
 .DB_table {
   display: flex;
@@ -58,4 +61,21 @@
 .Dashboard_learn {
   margin: auto;
   text-align: center;
+
+}
+
+.Dashboard_learn > button{
+  margin: 0px auto 20px auto;
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 30px;
+  display: flex;
+  width: fit-content;
+
+}
+
+.Dashboard_learn_link {
+  color: black;
+  text-decoration: none;
 }

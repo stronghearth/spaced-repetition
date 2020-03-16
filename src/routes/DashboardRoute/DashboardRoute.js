@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import TableRow from '../../components/TableRow/TableRow'
 import UserContext from '../../contexts/UserContext'
 import './DashboardRoute.css'
 
@@ -11,7 +12,7 @@ class DashboardRoute extends Component {
         <header className='Dashboard_header'>
           Welcome, {this.context.user.name}
           <div className='Dashboard_language'>
-            You're learning: Catalan
+            You're learning: <span style={{color: 'red'}}>Catalan</span>
           </div>
           <div className='Dashboard_history'>
             Brief history of language
@@ -29,17 +30,13 @@ class DashboardRoute extends Component {
           <div class="DB_table_cell Title">
             Incorrect
           </div>
-          <div class="DB_table_cell">
-            Bon dia! 
-          </div>
-          <div class="DB_table_cell Correct_count">
-            <div className='Count'>
-              0
-            </div> 
-          </div>
-          <div class="DB_table_cell Incorrect_count">
-            0
-          </div>
+         
+          <TableRow 
+            word='bon dia' 
+            correct='0' 
+            incorrect='0'
+          />
+
         </div>
 
         <div className='Dashboard_total'>
@@ -47,8 +44,8 @@ class DashboardRoute extends Component {
         </div>
         
         <div className='Dashboard_learn'>
-          <button className='Dashboard_learn'>
-            <Link to='/learn'>
+          <button className='Dashboard_learn_button'>
+            <Link to='/learn' className='Dashboard_learn_link'>
               Start Learning
             </Link>
           </button>
