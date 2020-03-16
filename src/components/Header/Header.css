@@ -1,0 +1,34 @@
+.h-websiteHeading {
+    text-align: center;
+    text-decoration: none;
+}
+
+.h-websiteHeading:hover{
+    text-decoration: underline;
+}
+
+.h-navLinks {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darkgray;
+}
+
+.logout {
+    padding: 10px;
+}
+
+.h-Link{
+    text-decoration: none;
+    padding: 10px;
+}
+
+.h-Link:hover {
+    background-color: darkgreen;
+    color: white;
+    text-decoration: underline;
+}
+
