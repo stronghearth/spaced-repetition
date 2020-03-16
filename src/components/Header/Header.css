@@ -1,11 +1,11 @@
 .Header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   background-color: #383738;
   box-shadow: 0px 9px 20px 0px rgba(0,0,0,0.75);
   color: white;
-  padding: 20px;
+  padding: 10px 0;
 }
 
 .Header_link,
@@ -16,10 +16,11 @@
 }
 
 .Header_link{
+  width: 100%;
   font-family: 'Pacifico', cursive;
-  width: 50%;
   font-size: 24px;
-  text-align: left;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .Header_nav {
@@ -28,43 +29,68 @@
   width: 100%;
   vertical-align: center;
   font-size: 14px;
-  text-align: right;
+  text-align: center;
   justify-items: center;
 }
 
-.Header_nav > a {
-  margin: 0;
-  margin-bottom: 10px;
+.Header_nav.Login, .Header_nav.Signup{
+  line-height: 2em;
 }
 
+
+.Header_nav > a {
+  margin: 0;
+  /* margin-bottom: 10px; */
+  padding: 10px auto;
+}
+
+
+.Login:hover, .Signup:hover{
+  background-color: #CE3814;
+  color: white;
+  
 .Header_nav_user {
   margin-bottom: 10px;
 }
 
-.Header_nav > a:hover {
-  color: #8BAAAD;
-}
+
 
 @media (min-width: 700px) {
   .Header {
     padding: 10px;
+    flex-direction: row;
+    align-content: center;
+  }
+
+  .Header_link{
+    width: 50%;
+    text-align: left;
+    margin: 10px auto auto 15px;
   }
 
   .Header_nav {
     flex-direction: row;
     justify-content: flex-end;
+    align-content: center;
     text-align: right;
     width: 50%;
+    margin: 10px auto;
   }
 
   .Header_nav > a {
-    margin-right: 10px;
+    margin-right: 20px;
     margin-bottom: 0px;
     width: fit-content;
     height: fit-content;
     justify-items: center;
     font-size: 16px;
   }
+
+  .Login:hover, .Signup:hover{
+    background-color: #383738;
+    color: #CE3814;
+    cursor: pointer;
+
   .Header_nav_user {
     margin-right: 30px;
   }
