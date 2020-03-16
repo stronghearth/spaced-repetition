@@ -32,9 +32,9 @@ class Header extends Component {
   renderLoginLink() {
     return (
       <nav className='Header_nav'>
-        <Link to='/login' className='Header_nav'>Login</Link>
+        <Link to='/login' className='Header_nav Login'>Login</Link>
         {' '}
-        <Link to='/register' className='Header_nav'>Sign up</Link>
+        <Link to='/register' className='Header_nav Signup'>Sign up</Link>
       </nav>
     )
   }
