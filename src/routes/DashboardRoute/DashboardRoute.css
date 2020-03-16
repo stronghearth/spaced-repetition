@@ -1,0 +1,61 @@
+.Dashboard_header,
+.Dashboard_total {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.Dashboard_header{
+  font-size: 26px;
+}
+
+.Dashboard_language {
+  font-size: 20px;
+}
+
+.Dashboard_history {
+  font-size: 16px;
+}
+
+
+
+.DB_table {
+  display: flex;
+  /* display: table; */
+  flex-wrap: wrap;
+  margin: 0 3em 3em 3em;
+  padding: 0;
+}
+.DB_table_cell {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  box-sizing: border-box;
+  flex-grow: 1;
+  /* Default to full width */
+  width: 100%;  
+  padding: 0.8em 1.2em;
+  /* Or flex might break */
+  overflow: hidden; 
+  list-style: none;
+  border: 1px solid black;
+  /* background: fade(slategrey,20%); */
+  /* > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; } */
+}
+
+.Count {
+  vertical-align: middle;
+}
+
+.DB_table_cell.Title {
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.DB_table--3cols > .DB_table_cell  { 
+  width: 33.33%; 
+}
+
+.Dashboard_learn {
+  margin: auto;
+  text-align: center;
+}

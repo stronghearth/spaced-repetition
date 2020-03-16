@@ -10,7 +10,7 @@
 
 .Header_link,
 .Header_nav {
-  margin: auto auto 0 auto;
+  margin: 0 auto 0 auto;
   text-decoration: none;
   color: white;
 }
@@ -33,6 +33,10 @@
 
 .Header_nav > a {
   margin: 0;
+  margin-bottom: 10px;
+}
+
+.Header_nav_user {
   margin-bottom: 10px;
 }
 
@@ -59,5 +63,8 @@
     height: fit-content;
     justify-items: center;
     font-size: 16px;
+  }
+  .Header_nav_user {
+    margin-right: 30px;
   }
 }

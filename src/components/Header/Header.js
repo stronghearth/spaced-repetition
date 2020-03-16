@@ -14,11 +14,12 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className='Header_nav'>
-        <span>
+        <span className='Header_nav_user'>
           {this.context.user.name}
         </span>
         <nav>
           <Link
+            className='Header_nav'
             onClick={this.handleLogoutClick}
             to='/login'>
             Logout
