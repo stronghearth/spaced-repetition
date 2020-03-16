@@ -10,13 +10,14 @@
 
 .Header_link,
 .Header_nav {
-  /* margin: auto auto 0 auto; */
+  margin: 0 auto 0 auto;
   text-decoration: none;
   color: white;
 }
 
 .Header_link{
   width: 100%;
+  font-family: 'Pacifico', cursive;
   font-size: 24px;
   text-align: center;
   margin-bottom: 10px;
@@ -43,10 +44,16 @@
   padding: 10px auto;
 }
 
+
 .Login:hover, .Signup:hover{
   background-color: #CE3814;
   color: white;
+  
+.Header_nav_user {
+  margin-bottom: 10px;
 }
+
+
 
 @media (min-width: 700px) {
   .Header {
@@ -83,5 +90,8 @@
     background-color: #383738;
     color: #CE3814;
     cursor: pointer;
+
+  .Header_nav_user {
+    margin-right: 30px;
   }
 }
