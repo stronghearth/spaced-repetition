@@ -35,7 +35,8 @@
 }
 
 .Header_nav.Login, 
-.Header_nav.Signup {
+.Header_nav.Signup,
+.Header_nav.Logout{
   line-height: 2em;
 }
 
