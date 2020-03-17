@@ -47,7 +47,7 @@ class LearningRoute extends Component {
         <FeedbackCard/>
         <div className="lr-wordStats">
             {/* dynamically inserted word stats, updated when answers submitted */}
-    <p className="lr-correctCount">You've answered this word correctly <span className="lr-wordScore">{correct}</span> times</p>
+            <p className="lr-correctCount">You've answered this word correctly <span className="lr-wordScore">{correct}</span> times</p>
             <p className="lr-incorrectCount">You've answered this word incorrectly <span className="lr-wordScore">{incorrect}</span> times</p>
             <p className="lr-totalScore">Total Score: <span className="lr-currentScore">{total}</span></p>
         </div>
