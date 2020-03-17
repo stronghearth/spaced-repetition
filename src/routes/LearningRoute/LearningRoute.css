@@ -7,6 +7,14 @@
     align-items: center;
 }
 
+.lr-word, .lr-totalScore {
+    color: #CF0A48
+}
+
+.lr-wordScore {
+    color: #CF751F
+}
+
 .lr-questionCard {
     border: grey;
     line-height: 1.5em;

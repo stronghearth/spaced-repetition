@@ -18,13 +18,13 @@ class DashboardRoute extends Component {
        
 
         <div className='DB_table DB_table--3cols'>
-          <div class="DB_table_cell Title">
+          <div className="DB_table_cell Title">
             Word 
           </div>
-          <div class="DB_table_cell Title">
+          <div className="DB_table_cell Title">
             Correct
           </div>
-          <div class="DB_table_cell Title">
+          <div className="DB_table_cell Title">
             Incorrect
           </div>
          
