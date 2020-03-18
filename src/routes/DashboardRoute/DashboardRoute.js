@@ -63,23 +63,25 @@ class DashboardRoute extends Component {
           Welcome, {this.context.user.name}
           <div className='Dashboard_language'>
             You're learning: {' '}
-            <span style={{color: '#CE3814'}}>
+            <h2 style={{color: '#CE3814'}}>
               {language.name}
-            </span>
+            </h2>
           </div>
         </header>
+
+        <h3 className='Dashboard_header'>Words to practice</h3>
        
 
         <div className='DB_table DB_table--3cols'>
-          <div className="DB_table_cell Title">
+          <li className="DB_table_cell Title">
             Word 
-          </div>
-          <div className="DB_table_cell Title">
+          </li>
+          <li className="DB_table_cell Title">
             Correct
-          </div>
-          <div className="DB_table_cell Title">
+          </li>
+          <li className="DB_table_cell Title">
             Incorrect
-          </div>
+          </li>
          
           {words.map(word => {
              return <TableRow 
@@ -94,13 +96,13 @@ class DashboardRoute extends Component {
         </div>
 
         <div className='Dashboard_total'>
-          Total Correct: {language.total_score}
+          Total correct answers: {language.total_score}
         </div>
         
         <div className='Dashboard_learn'>
           <Link to='/learn' className='Dashboard_learn_link'>
             <button className='Dashboard_learn_button'>
-              Start Learning
+              Start practicing
             </button>
           </Link>
           
