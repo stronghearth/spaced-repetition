@@ -1,44 +1,58 @@
 import React, { Component } from 'react'
 import './LearningRoute.css'
-import Button from '../../components/Button/Button'
+import QuestionCard from '../../components/QuestionCard/QuestionCard'
+import FeedbackCard from '../../components/FeedbackCard/FeedbackCard'
+import config from '../../config'
+import TokenService from '../../services/token-service'
 
 class LearningRoute extends Component {
-  // state manipulation and fetch requests handled in LearningContext file and language-service file that way dashboard route has access too
+  state = {
+    word: '',
+    correct: 0,
+    incorrect: 0,
+    total: 0,
+    error: null
+  }
+  
+  componentDidMount() {
+    return fetch(`${config.API_ENDPOINT}/language/head`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+        )
+      .then(res => {
+        this.setState({
+          word: res.nextWord,
+          correct: res.wordCorrectCount,
+          incorrect: res.wordIncorrectCount,
+          total: res.totalScore
+        })
+      })
+      .catch(err => this.setState({error: err.message}))
+  }
   render() {
+    const {word, correct, incorrect, total, error} = this.state
     return (
       <section className="lr-section">
+        {error && <p className="error">{error}</p>}
         <div className="lr-larger">
-        <div className="lr-questionCard">
-            {/* dynamically inserted word*/}
-            <h2 className="lr-wordPrompt">Translate the word:</h2>
-            <h3 className="lr-word"> Si us plau</h3>
-            <form className="lr-answerForm">
-              {/* value updates state */}
-              <input type="text" className="lr-answerInput" placeholder="Enter translation here"></input>
-              {/* handleSubmit function */}
-              <Button type="submit">Check Answer</Button>
-            </form>
-        </div>
+        <QuestionCard currentWord={word} />
+        <FeedbackCard/>
         <div className="lr-wordStats">
             {/* dynamically inserted word stats, updated when answers submitted */}
-            <p className="lr-correctCount">You've answered this word correctly 15 times</p>
-            <p className="lr-incorrectCount">You've answered this word incorrectly 5 times</p>
-            <p className="lr-totalScore">Total Score: 45</p>
+            <p className="lr-correctCount">You've answered this word correctly <span className="lr-wordScore">{correct}</span> times</p>
+            <p className="lr-incorrectCount">You've answered this word incorrectly <span className="lr-wordScore">{incorrect}</span> times</p>
+            <p className="lr-totalScore">Total Score: <span className="lr-currentScore">{total}</span></p>
         </div>
         </div>
-            {/* conditionally render feedback based on when user submits an answer and whether the response is correct or not */}
-        {/* <div className="lr-feedback">
-             components needed for positive and negative feedback
-            <h3 className="lr-negativeMessage">Good try, but not quite right.</h3>
-             dynamically inserted word, translation, translation attempt 
-            <p className="lr-correctTranslation">The correct translation for Si us plau was Please and you chose Thank You.</p>
-            <Button className="lr-nextButton">Try another word!</Button>
-
-            <h3 className="lr-positiveMessage">Correct!</h3>
-            <p className="lr-correctTranslation">The correct translation for Si us plau was Please and you chose Please.</p>
-            handleNextWordClick function 
-            <Button className="lr-nextButton">Try another word!</Button>
-        </div> */}
+            
       </section>
     );
   }
