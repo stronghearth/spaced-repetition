@@ -1,50 +1,108 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import TableRow from '../../components/TableRow/TableRow'
 import UserContext from '../../contexts/UserContext'
+import config from '../../config.js'
+import TokenService from '../../services/token-service'
+import TableRow from '../../components/TableRow/TableRow'
+
 import './DashboardRoute.css'
 
 class DashboardRoute extends Component {
   static contextType = UserContext;
+
+  constructor(props) {
+    super(props)
+    const state = { 
+      language: {}, 
+      words: [] 
+    }
+
+    this.state = state;
+  }
+
+  componentDidMount() {
+    const token = TokenService.getAuthToken();
+    this.getLanguageWords(token);
+  }
+
+  getLanguageWords = (token) => {
+    return fetch(`${config.API_ENDPOINT}/language`, {
+      method: 'GET',
+      headers : {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(res => {
+      if(!res.ok){
+        return res.json().then(e => Promise.reject(e))
+      }
+      return res.json()
+    })
+    .then(res =>{
+      //set language from server
+      let language = res.language;
+      this.setState({
+        language
+      })
+      //set words from server
+      let words = res.words
+      this.setState({
+        words
+      })
+    })
+    .catch(err => {
+      console.error(err)
+    })
+  }
   render() {
+    const { language, words } = this.state;
     return (
       <section className='Dashboard'>
         <header className='Dashboard_header'>
           Welcome, {this.context.user.name}
           <div className='Dashboard_language'>
-            You're learning: <span style={{color: '#CE3814'}}>Catalan</span>
+            You're learning: {' '}
+            <h2 style={{color: '#CE3814'}}>
+              {language.name}
+            </h2>
           </div>
         </header>
+
+        <h3 className='Dashboard_header'>Words to practice</h3>
        
 
         <div className='DB_table DB_table--3cols'>
-          <div class="DB_table_cell Title">
+          <li className="DB_table_cell Title">
             Word 
-          </div>
-          <div class="DB_table_cell Title">
+          </li>
+          <li className="DB_table_cell Title">
             Correct
-          </div>
-          <div class="DB_table_cell Title">
+          </li>
+          <li className="DB_table_cell Title">
             Incorrect
-          </div>
+          </li>
          
-          <TableRow 
-            key=''
-            word='bon dia' 
-            correct='0' 
-            incorrect='0'
-          />
+          {words.map(word => {
+             return <TableRow 
+              key={word.id}
+              currWord={word.original}
+              correct={word.correct_count} 
+              incorrect={word.incorrect_count}
+            />}
+          )}
+          
 
         </div>
 
         <div className='Dashboard_total'>
-          Total Correct: 
+          Total correct answers: {language.total_score}
         </div>
         
         <div className='Dashboard_learn'>
           <Link to='/learn' className='Dashboard_learn_link'>
             <button className='Dashboard_learn_button'>
-              Start Learning
+              Start practicing
             </button>
           </Link>
           
