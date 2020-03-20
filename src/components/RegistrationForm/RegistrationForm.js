@@ -28,8 +28,8 @@ class RegistrationForm extends Component {
         password.value = ''
         this.props.onRegistrationSuccess()
       })
-      .catch(res => {
-        this.setState({ error: res.error })
+      .catch(err => {
+        this.setState({ error: err.error })
       })
   }
 
@@ -47,41 +47,52 @@ class RegistrationForm extends Component {
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div>
-          <Label htmlFor='registration-name-input' className='Registration_label'>
-            Enter your name<Required />
-          </Label>
-          <Input
-            className='Registration_input'
-            ref={this.firstInput}
-            id='registration-name-input'
-            name='name'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='registration-username-input' className='Registration_label'>
-            Choose a username<Required />
-          </Label>
-          <Input
-            className='Registration_input'
-            id='registration-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='registration-password-input' className='Registration_label'>
-            Choose a password<Required />
-          </Label>
-          <Input
-            className='Registration_input'
-            id='registration-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
+        <fieldset className='RegistrationForm_fields'>
+          <div>
+            <Label htmlFor='registration-name-input' className='Registration_label'>
+              Enter your name<Required />
+            </Label>
+            <Input
+              className='Registration_input'
+              ref={this.firstInput}
+              id='registration-name-input'
+              name='name'
+              aria-label="Enter your name"
+              aria-required="true"
+              aria-describedby="nameError"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='registration-username-input' className='Registration_label'>
+              Choose a username<Required />
+            </Label>
+            <Input
+              className='Registration_input'
+              id='registration-username-input'
+              name='username'
+              aria-label="Choose a username"
+              aria-required="true"
+              aria-describedby="usernameError"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='registration-password-input' className='Registration_label'>
+              Choose a password<Required />
+            </Label>
+            <Input
+              className='Registration_input'
+              id='registration-password-input'
+              name='password'
+              type='password'
+              aria-label="Choose a password"
+              aria-required="true"
+              aria-describedby="passwordError"
+              required
+            />
+          </div>
+        </fieldset>
         <footer className='Registration_footer'>
           <Button type='submit' className='Registration_button'>
             Sign up
