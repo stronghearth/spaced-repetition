@@ -77,7 +77,6 @@ fieldset > div {
 .Registration_footer > a {
   text-decoration: none;
   color: #0080A5;
-  opacity: 80%;
 }
 
 .Registration_footer > a:focus, .Registration_footer > a:hover {
@@ -89,11 +88,6 @@ fieldset > div {
   border-color: #CF751F;
   color: #CF751F;
 }
-
-/* .RR_toLogin > a {
-  color: #00A1CF;
-  opacity: 80%;
-} */
 
 
 

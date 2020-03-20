@@ -83,9 +83,12 @@
     align-content: center;
   }
 
-  .Header_link{
+  .Header_link > a {
     color: #00A1CF;
-    opacity: 80%;
+  }
+
+  .Header_link {
+    color: #00A1CF;
     width: 50%;
     text-align: left;
     margin: auto auto auto 15px;
