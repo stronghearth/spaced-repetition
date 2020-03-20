@@ -1,6 +1,7 @@
 .Login_header {
   margin: 30px 10px 10px 10px;
   color: black;
+  padding-top: 30px;
 }
 
 .LoginForm {
@@ -8,24 +9,30 @@
   margin: 10px 10px;
 }
 
-.LoginForm > div {
+.LoginForm_fields > div {
   display: flex;
   flex-direction: column;
   padding: 10px 0;
   margin: auto;
   width: fit-content;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .Login_label {
   margin: 0px 0px 10px 0px;
+  height: fit-content;
 }
 
 .Login_input {
-  margin-bottom: 20px;
   border: 1px solid black;
   border-radius: 30px;
   padding: 5px 20px;
   font-size: 16px;
+}
+
+.Login_input:focus{
+  border: 2px solid black;
 }
 
 .Login_button {
@@ -38,7 +45,7 @@
   width: 50px;
 }
 
-.Login_button:hover {
+.Login_button:hover,  .Login_button:focus{
   border-color: #CF751F;
   color: #CF751F;
 }
@@ -49,16 +56,27 @@
   }
   
   .LoginForm {
-    width: 60%;
     margin: auto;
     
   }
 
-  .LoginForm > div {
+  .LoginForm_fields > div {
     flex-direction: row;
   }
 
   .Login_label {
     margin: 0px 20px 10px 0px;
   }
+}
+
+@media (min-width: 500px) {
+  .LoginForm {
+    width: 60%;
+    margin: auto;
+  }
+  .Login_header {
+    margin: 30px 10px 10px 20%;
+    padding-top: 30px;
+  }
+
 }
