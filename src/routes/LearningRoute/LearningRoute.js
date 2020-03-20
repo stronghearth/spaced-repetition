@@ -4,6 +4,7 @@ import QuestionCard from '../../components/QuestionCard/QuestionCard'
 import FeedbackCard from '../../components/FeedbackCard/FeedbackCard'
 import LearningContext from '../../contexts/LearningContext'
 import ReactCardFlip from 'react-card-flip'
+import Button from '../../components/Button/Button'
 import config from '../../config'
 import TokenService from '../../services/token-service'
 
@@ -32,10 +33,10 @@ class LearningRoute extends Component {
   }
 
   render() {
-    const {correct, incorrect, total, error, isFlipped} = this.context
+    const {correct, incorrect, total, error, isFlipped, closeError} = this.context
     return (
       <section className="lr-section">
-        {error && <p className="error">{error}</p>}
+        {error && <p className="error" role='alert'>{error} <Button aria-label="close error" className="closeError" onClick={e => closeError()}>Close</Button></p>}
         <div className="lr-larger">
           <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
             <QuestionCard/>

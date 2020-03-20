@@ -9,6 +9,7 @@ export default class AnswerForm extends Component {
 
   state = {
     value: '',
+  
   }
 
   resetValue = () => {
@@ -49,15 +50,15 @@ export default class AnswerForm extends Component {
   }
 
    render() {
-      const {currentWord, error} = this.context
+      const {currentWord, error, closeError, isFlipped} = this.context
        return <>
        <div className="lr-questionCard">
-       {error && <p className="error">{error}</p>}
+       {error && <p className="error" role='alert'>{error} <Button aria-label="close error" className="closeError" onClick={e => closeError()}>Close</Button></p>}
        <h2 className="lr-wordPrompt">Translate the word: <br /><br /><span className="lr-word"> {currentWord}</span></h2>
        <form className="lr-answerForm" onSubmit={e => this.handleSubmitAnswer(e)}>
        <label htmlFor="learn_guess_input">What's the translation for this word?</label>
-       <input type="text" id="learn_guess_input" name="learn_guess_input" className="lr-answerInput" value={this.state.value} onChange={e => this.setState({value: e.target.value})} placeholder="Enter translation here" required></input>
-       <Button type="submit">Sumbit Your Answer</Button>
+       {isFlipped ? '' :<input type="text" id="learn_guess_input" name="learn_guess_input" aria-label="Input your answer here" aria-required="true" className="lr-answerInput" value={this.state.value} onChange={e => this.setState({value: e.target.value})} placeholder="Enter translation here" ></input>}
+       <Button aria-label="Submit Your Answer" type="submit">Sumbit Your Answer</Button>
      </form>
      </div>
      </>

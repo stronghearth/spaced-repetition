@@ -10,12 +10,13 @@ const LearningContext = React.createContext({
         correctAnswer: '',
         isFlipped: false,
         isCorrect: null,
-        error: null,
+        error: '',
         flipToFeedback: () => {},
         flipToQuestion: () => {},
         setCurrentWord: () => {},
         setFeedback: () => {},
-        setError: () => {}
+        setError: () => {},
+        closeError: () => {}
 })
 
 export default LearningContext
@@ -77,6 +78,12 @@ export class LearningProvider extends Component {
             error: error.message
         })
     }
+
+    closeError = () => (
+        this.setState({
+            error: null
+        })
+    )
     render() {
         const value = {
             currentWord: this.state.currentWord,
@@ -93,7 +100,8 @@ export class LearningProvider extends Component {
             flipToQuestion: this.flipToQuestion,
             setCurrentWord: this.setCurrentWord,
             setFeedback: this.setFeedback,
-            setError: this.setError
+            setError: this.setError,
+            closeError: this.closeError
         }
         return(
             <LearningContext.Provider value={value}>

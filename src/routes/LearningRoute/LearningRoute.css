@@ -15,8 +15,18 @@
     color: #CF751F
 }
 
+.error {
+    background-color: #8B0000;
+    color: white;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #8B0000;
+    padding: 10px;
+    text-align: center;
+}
+
 .lr-questionCard {
-    border: grey;
+    border: #767676;
     line-height: 1.5em;
     border-radius: 10px;
     border-style: solid;
@@ -45,11 +55,11 @@
 }
 
 .lr-positiveMessage {
-    color: #29CF3B
+    color: #1B8927
 }
 
 .lr-responses {
-    color: #00A1CF
+    color: #0080A5
 }
 
 @media screen and (min-width: 700px) {
