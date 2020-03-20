@@ -51,30 +51,38 @@ class LoginForm extends Component {
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div>
-          <Label htmlFor='login-username-input' className='Login_label'>
-            Username
-          </Label>
-          <Input
-            className='Login_input'
-            ref={this.firstInput}
-            id='login-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='login-password-input' className='Login_label'>
-            Password
-          </Label>
-          <Input
-            className='Login_input'
-            id='login-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
+        <fieldset className='LoginForm_fields'>
+          <div>
+            <Label htmlFor='login-username-input' className='Login_label'>
+              Username
+            </Label>
+            <Input
+              className='Login_input'
+              ref={this.firstInput}
+              id='login-username-input'
+              name='username'
+              aria-label="Enter your username"
+              aria-required="true"
+              aria-describedby="usernameError"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='login-password-input' className='Login_label'>
+              Password
+            </Label>
+            <Input
+              className='Login_input'
+              id='login-password-input'
+              name='password'
+              type='password'
+              aria-label="Enter your password"
+              aria-required="true"
+              aria-describedby="passwordError"
+              required
+            />
+          </div>
+        </fieldset>
         <Button type='submit' className='Login_button'>
           Login
         </Button>

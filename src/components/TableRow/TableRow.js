@@ -3,7 +3,7 @@ import '../../routes/DashboardRoute/DashboardRoute.css'
 
 export default function TableRow(props) {
   return(
-    <>
+    <div className='DB_table DB_table--3cols Rows Row'>
       <div className="DB_table_cell" >
         {props.currWord}
       </div>
@@ -19,6 +19,6 @@ export default function TableRow(props) {
           {props.incorrect}
         </div> 
       </div>
-    </>
+    </div >
   );
 }
