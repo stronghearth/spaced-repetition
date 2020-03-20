@@ -60,7 +60,7 @@ class DashboardRoute extends Component {
     return (
       <section className='Dashboard'>
         <header className='Dashboard_header'>
-          Welcome, {this.context.user.name}
+          <h1>Welcome, {this.context.user.name}</h1>
           <div className='Dashboard_language'>
             You're learning: {' '}
             <h2 style={{color: '#CE3814'}}>
@@ -69,28 +69,31 @@ class DashboardRoute extends Component {
           </div>
         </header>
 
-        <h3 className='Dashboard_header'>Words to practice</h3>
-       
+        
+        <h3 className='Dashboard_header Practice'>Words to practice</h3>
 
         <div className='DB_table DB_table--3cols'>
-          <li className="DB_table_cell Title">
-            Word 
-          </li>
-          <li className="DB_table_cell Title">
-            Correct
-          </li>
-          <li className="DB_table_cell Title">
-            Incorrect
-          </li>
-         
-          {words.map(word => {
-             return <TableRow 
-              key={word.id}
-              currWord={word.original}
-              correct={word.correct_count} 
-              incorrect={word.incorrect_count}
-            />}
-          )}
+            <li className="DB_table_cell Title" style={{color: '#0080A5'}}>
+              Word 
+            </li>
+            <li className="DB_table_cell Title" style={{color: '#1B8927'}}>
+              Correct
+            </li>
+            <li className="DB_table_cell Title" style={{color: '#CE3814'}}>
+              Incorrect
+            </li>
+          
+            <div className='DB_table DB_table--3cols Rows'>
+              {words.map(word => {
+              return <TableRow 
+                key={word.id}
+                currWord={word.original}
+                correct={word.correct_count} 
+                incorrect={word.incorrect_count}
+              />}
+            )}
+            </div>
+          
           
 
         </div>

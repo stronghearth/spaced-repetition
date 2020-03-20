@@ -1,27 +1,55 @@
+.Dashboard {
+  padding-top: 30px;
+}
+
 .Dashboard_header,
-.Dashboard_total,
 .Dashboard_knowledge {
   padding: 30px 20px;
   text-align: center;
 }
 
 .Dashboard_header{
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 26px;
   padding: 20px;
+  justify-content: center;
+}
+
+.Dashboard_header > h1 {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin-top: 20px;
+}
+
+.Dashboard > header {
+  /* background-color: #EAF4F4; */
+  background-color: #FBFEF9;
+  box-shadow: 0px 0px 9px 5px rgba(207,117,31,0.78);
+  /* box-shadow: 0px 0px 9px 5px rgba(206,56,20,0.71); */
+  /* box-shadow: 0px 0px 9px 5px rgba(0,128,163,0.36); */
 }
 
 .Dashboard_language {
   font-size: 20px;
 }
 
-.Dashboard_history {
-  font-size: 14px;
+.Dashboard_language> h2 {
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
-.Dashboard_language,
 .Dashboard_history {
-  margin-top: 15px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.Dashboard_language{
+  margin-top: 20px;
+}
+
+.Practice {
+  margin-top: 40px;
+  margin-bottom: 5px;
 }
 
 .DB_table {
@@ -30,7 +58,23 @@
   flex-wrap: wrap;
   margin: 0 3em 3em 3em;
   padding: 0;
+  box-shadow: 0px 0px 9px 2px rgba(56,55,56,1);
+  /* box-shadow: 0px 0px 9px 5px rgba(206,56,20,0.71); */
+
 }
+
+
+.DB_table.Rows{
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+.DB_table.Rows > .Row:nth-child(odd){
+  background-color: rgba(56,55,56,.5);
+  color: white;
+}
+
 .DB_table_cell {
   text-align: center;
   display: table-cell;
@@ -43,9 +87,11 @@
   /* Or flex might break */
   overflow: hidden; 
   list-style: none;
-  border: 1px solid black;
-  /* background: fade(slategrey,20%); */
-  /* > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; } */
+  /* border: 0.25px solid rgba(56,55,56,0.27); */
+  /* border: 1px solid rgba(206,56,20,0.28); */
+  border: none;
+  
+
 }
 
 .Count {
@@ -53,9 +99,18 @@
 }
 
 .DB_table_cell.Title {
-  padding: 10px 5px;
+  padding: 15px 5px;
   text-align: center;
+  font-size: 1.2em;
 }
+
+.Dashboard_total{
+  text-align: center;
+  margin-top: 0;
+  padding-bottom: 30px;
+  color: #CF751F;
+}
+
 
 .DB_table--3cols > .DB_table_cell  { 
   width: 33.33%; 
@@ -82,9 +137,58 @@
 
 .Dashboard_learn_button {
   border: none;
+  border-color: #CF751F;
+}
+
+.Dashboard_learn_link {
+  margin: 0px auto 20px auto;
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 30px;
+  display: flex;
+  width: 100px;
+
+}
+
+.Dashboard_learn_button:hover,  .Dashboard_learn_button:focus{
+  background-color: white;
+  border-color: #CF751F;
+  color: #CF751F;
+  cursor: pointer;
 }
 
 .Dashboard_learn_link:hover {
   color: #CF0A48;
   border-color: #CF0A48;
+  background-color: white;
+}
+
+.Dashboard_knowledge{
+  padding-top: 40px;
+  padding-bottom: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 70%;
+  margin: auto;
+  color: #0080A5;
+}
+
+@media (min-width: 700px) {
+  .DB_table_cell{
+    border: 0.25px solid rgba(0,128,163,0.36);
+  }
+
+  .DB_table.DB_table--3cols {
+    width: 70%;
+    margin: auto;
+  }
+
+  .DB_table.DB_table--3cols.Rows{
+    width: 100%;
+  }
+
+  .Dashboard_total{
+    margin-top: 30px;
+  }
 }
