@@ -34,7 +34,7 @@ export class LearningProvider extends Component {
             correctAnswer: '',
             isFlipped: false,
             isCorrect: null,
-            error: null
+            error: "no need to worry I am C-3P0 human cyborg relations"
         }
         this.state = state
     }

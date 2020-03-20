@@ -1,3 +1,13 @@
 * {
   outline: none;
 }
+
+.error {
+  background-color: #8B0000;
+  color: white;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #8B0000;
+  padding: 10px;
+  text-align: center;
+}

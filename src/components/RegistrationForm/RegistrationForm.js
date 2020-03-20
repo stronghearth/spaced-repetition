@@ -45,7 +45,7 @@ class RegistrationForm extends Component {
         className='RegistrationForm'
       >
         <div role='alert'>
-          {error && <p>{error}</p>}
+          {error && <p className='error'>{error}</p>}
         </div>
         <fieldset className='RegistrationForm_fields'>
           <div>
