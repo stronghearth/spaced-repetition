@@ -40,6 +40,18 @@
     margin-bottom: 25px;
 }
 
+.lr-negativeMessage{
+    color: #CE3814
+}
+
+.lr-positiveMessage {
+    color: #29CF3B
+}
+
+.lr-responses {
+    color: #00A1CF
+}
+
 @media screen and (min-width: 700px) {
     .lr-larger {
         display: flex;

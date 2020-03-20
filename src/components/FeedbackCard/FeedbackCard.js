@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
-//import Button from '../Button/Button'
+import LearningContext from '../../contexts/LearningContext'
+import Button from '../Button/Button'
 
 export default class FeedbackCard extends Component {
-    render() {
-        return <> {/* conditionally render feedback based on when user submits an answer and whether the response is correct or not
-             <div className="lr-feedback">
-             components needed for positive and negative feedback
-            <h3 className="lr-negativeMessage">Good try, but not quite right.</h3>
-             dynamically inserted word, translation, translation attempt 
-            <p className="lr-correctTranslation">The correct translation for Si us plau was Please and you chose Thank You.</p>
-            <Button className="lr-nextButton">Try another word!</Button>
+    static contextType = LearningContext
 
-            <h3 className="lr-positiveMessage">Correct!</h3>
-            <p className="lr-correctTranslation">The correct translation for Si us plau was Please and you chose Please.</p>
-            handleNextWordClick function 
-            <Button className="lr-nextButton">Try another word!</Button>
-        </div> */}
-        </>
+    render() {
+        const {currentWord, answer, correctAnswer, isCorrect, error, flipToQuestion, nextWord} = this.context
+        return <div className="lr-questionCard">
+            {error && <p className="error">{error}</p>}
+             {isCorrect ? <h3 className="lr-positiveMessage">Correct!</h3> : <h3 className="lr-negativeMessage">Good try, but not quite right.</h3>}
+            <p className="lr-correctTranslation">The correct translation for <span className="lr-word">{currentWord}</span> was <span className="lr-responses">{correctAnswer}</span> and you chose <span className="lr-responses">{answer}</span>.</p>
+            <Button className="lr-nextButton" onClick={e => flipToQuestion(nextWord)}>Try another word!</Button>
+        </div>
     }
 }

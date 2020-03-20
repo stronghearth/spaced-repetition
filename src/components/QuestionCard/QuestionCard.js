@@ -11,17 +11,15 @@ export default class AnswerForm extends Component {
     value: '',
   }
 
-  handleSubmitAnswer(e) {
-    e.preventDefault()
-    const {learn_guess_input} = e.target
-    const guessSubmisson = {guess: learn_guess_input}
-    this.postGuess(guessSubmisson)
+  resetValue = () => {
+      this.setState({
+        value: ''
+      })
   }
-
   postGuess = (guessSubmission) => {
-    const {setFeedback, setError} = this.context
-    return fetch(`${config.API_ENDPOINT}/language/head`, {
-      method: 'GET',
+    const {setFeedback, setError, flipToFeedback} = this.context
+    return fetch(`${config.API_ENDPOINT}/language/guess`, {
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
         'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -36,18 +34,27 @@ export default class AnswerForm extends Component {
         : res.json()
         )
       .then(res => {
-        setFeedback(res)
+        setFeedback(res, guessSubmission.guess)
+        flipToFeedback()
+        this.resetValue()
       })
       .catch(err => setError(err))
   }
 
+  handleSubmitAnswer(e) {
+    e.preventDefault()
+    const {learn_guess_input} = e.target
+    const guessSubmisson = {guess: learn_guess_input.value}
+    this.postGuess(guessSubmisson)
+  }
+
    render() {
-      const {error} = this.context
+      const {currentWord, error} = this.context
        return <>
        <div className="lr-questionCard">
        {error && <p className="error">{error}</p>}
-       <h2 className="lr-wordPrompt">Translate the word: <br /><br /><span className="lr-word"> {this.props.currentWord}</span></h2>
-       <form className="lr-answerForm" onSubmit={this.handleSubmitAnswer}>
+       <h2 className="lr-wordPrompt">Translate the word: <br /><br /><span className="lr-word"> {currentWord}</span></h2>
+       <form className="lr-answerForm" onSubmit={e => this.handleSubmitAnswer(e)}>
        <label htmlFor="learn_guess_input">What's the translation for this word?</label>
        <input type="text" id="learn_guess_input" name="learn_guess_input" className="lr-answerInput" value={this.state.value} onChange={e => this.setState({value: e.target.value})} placeholder="Enter translation here" required></input>
        <Button type="submit">Sumbit Your Answer</Button>

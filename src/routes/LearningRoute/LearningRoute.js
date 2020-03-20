@@ -3,11 +3,13 @@ import './LearningRoute.css'
 import QuestionCard from '../../components/QuestionCard/QuestionCard'
 import FeedbackCard from '../../components/FeedbackCard/FeedbackCard'
 import LearningContext from '../../contexts/LearningContext'
+import ReactCardFlip from 'react-card-flip'
 import config from '../../config'
 import TokenService from '../../services/token-service'
 
 class LearningRoute extends Component {
   static contextType = LearningContext
+
   
   componentDidMount() {
     const {setCurrentWord, setError} = this.context
@@ -30,15 +32,16 @@ class LearningRoute extends Component {
   }
 
   render() {
-    const {word, correct, incorrect, total, error} = this.context
+    const {correct, incorrect, total, error, isFlipped} = this.context
     return (
       <section className="lr-section">
         {error && <p className="error">{error}</p>}
         <div className="lr-larger">
-        <QuestionCard currentWord={word} />
-        <FeedbackCard/>
+          <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+            <QuestionCard/>
+            <FeedbackCard/>
+          </ReactCardFlip>
         <div className="lr-wordStats">
-            {/* dynamically inserted word stats, updated when answers submitted */}
             <p className="lr-correctCount">You've answered this word correctly <span className="lr-wordScore">{correct}</span> times</p>
             <p className="lr-incorrectCount">You've answered this word incorrectly <span className="lr-wordScore">{incorrect}</span> times</p>
             <p className="lr-totalScore">Total Score: <span className="lr-currentScore">{total}</span></p>
