@@ -58,7 +58,7 @@ export default class AnswerForm extends Component {
        <form className="lr-answerForm" onSubmit={e => this.handleSubmitAnswer(e)}>
        <label htmlFor="learn_guess_input">What's the translation for this word?</label>
        {isFlipped ? '' :<input type="text" id="learn_guess_input" name="learn_guess_input" aria-label="Input your answer here" aria-required="true" className="lr-answerInput" value={this.state.value} onChange={e => this.setState({value: e.target.value})} placeholder="Enter translation here" ></input>}
-       <Button aria-label="Submit Your Answer" type="submit">Sumbit Your Answer</Button>
+       <Button aria-label="Submit Your Answer" type="submit">Submit Your Answer</Button>
      </form>
      </div>
      </>
