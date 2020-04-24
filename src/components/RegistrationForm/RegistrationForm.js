@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../Form/Form'
+import ValidationError from '../ValidationError/ValidationError'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
 import './RegistrationForm.css'
 
 class RegistrationForm extends Component {
+
   static defaultProps = {
     onRegistrationSuccess: () => { }
   }
 
-  state = { error: null }
+  state = { 
+    error: null,
+    touched: false,
+    password: ''
+  }
 
   firstInput = React.createRef()
 
@@ -37,8 +43,36 @@ class RegistrationForm extends Component {
     this.firstInput.current.focus()
   }
 
+  passwordUpdated = (e) => {
+    const { value } = e.currentTarget
+    this.setState({
+        touched: true,
+        password: value
+    })
+  }
+
+  validatePassword = () => {
+    const password = this.state.password;
+    const hasNum = /\d/;
+    const hasUpperCase = /([A-Z])/;
+    const hasSpecialChar = /([!@#$%^&])/;
+    if (password.length <= 7) {
+        return 'Password needs to be at least 8 characters long'
+    }
+    else if (!hasNum.test(password)) {
+        return 'Password must contain a number'
+    }
+    else if(!hasUpperCase.test(password)) {
+        return 'Password must contain an uppercase letter'
+    }
+    else if(!hasSpecialChar.test(password)) {
+        return 'Password must contain a special character'
+    }
+    return null
+}
+
   render() {
-    const { error } = this.state
+    const { error, touched } = this.state
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -46,6 +80,7 @@ class RegistrationForm extends Component {
       >
         <div role='alert'>
           {error && <p className='error'>{error}</p>}
+          {touched && <ValidationError message={this.validatePassword()}/>}
         </div>
         <fieldset className='RegistrationForm_fields'>
           <div>
@@ -89,6 +124,7 @@ class RegistrationForm extends Component {
               aria-label="Choose a password"
               aria-required="true"
               aria-describedby="passwordError"
+              onChange={e => {this.passwordUpdated(e); this.validatePassword()}}
               required
             />
           </div>
