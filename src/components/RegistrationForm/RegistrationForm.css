@@ -11,7 +11,7 @@ fieldset > div {
   margin: auto;
 }
 .RR_description {
-  color: #0080A5;
+  color: #0080a5;
   text-align: center;
   margin-top: 50px;
   font-size: 24px;
@@ -19,7 +19,7 @@ fieldset > div {
   padding-right: 10%;
 }
 
-.RegistrationRoute{
+.RegistrationRoute {
   padding-bottom: 50px;
 }
 
@@ -28,7 +28,7 @@ fieldset > div {
 }
 
 .RegistrationForm {
-  border: 1px solid #CF751F;
+  border: 1px solid #cf751f;
   margin: 10px 10px;
   padding-bottom: 20px;
 }
@@ -38,10 +38,12 @@ fieldset > div {
   flex-direction: column;
   padding: 10px 0;
   margin: auto;
-  width: fit-content;
+  /* width: 80%; */
 }
 
 .Registration_label {
+  text-align: left;
+  width: 100%;
   margin: 0px 0px 10px 0px;
 }
 
@@ -51,12 +53,13 @@ fieldset > div {
   border-radius: 30px;
   padding: 5px 20px;
   font-size: 16px;
+  text-align: center;
 }
 
-.Registration_input:focus {
-  border: 2px solid black;
+.Registration_input:focus,
+.Registration_input:active {
+  border: 2px solid #0080a5;
 }
-
 
 .Registration_footer > .Registration_button {
   margin: 0px auto 20px auto;
@@ -67,8 +70,6 @@ fieldset > div {
   display: flex;
 }
 
-
-
 .Registration_footer {
   margin: 10px auto;
   text-align: center;
@@ -76,50 +77,59 @@ fieldset > div {
 
 .Registration_footer > a {
   text-decoration: none;
-  color: #0080A5;
+  color: #0080a5;
 }
 
-.Registration_footer > a:focus, .Registration_footer > a:hover {
+.Registration_footer > a:focus,
+.Registration_footer > a:hover {
   text-decoration: underline;
 }
 
-
-.Registration_button:hover, .Registration_button:focus {
-  border-color: #CF751F;
-  color: #CF751F;
+.Registration_button:hover,
+.Registration_button:focus {
+  border-color: #cf751f;
+  color: #cf751f;
 }
-
-
 
 @media (min-width: 700px) {
   .RR_description {
     font-size: 30px;
     padding: 5% 10%;
-
   }
 
   .RR_header {
     margin: 30px 10px 10px 20%;
   }
-  
+
   .RegistrationForm {
-    width: 80%;
+    width: 100%;
     margin: auto;
-    
+  }
+  .RegistrationForm_fields {
+    width: 100%;
   }
 
   .RegistrationForm_fields > div {
     flex-direction: row;
+    width: 100%;
+    max-width: 450px;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
   .Registration_label {
-    margin: 0px 20px 0px 0px;
+    width: 40%;
+    text-align: right;
+    margin: 0px 10px 0px 0px;
+  }
+  .Registration_input {
+    width: 60%;
+    margin-bottom: 0px;
   }
 }
 
-
 @media (min-width: 500px) {
-  .RR_description{
+  .RR_description {
     font-size: 28px;
     padding: 5% 10%;
   }
@@ -127,10 +137,8 @@ fieldset > div {
   .RegistrationForm {
     width: 60%;
     margin: auto;
-    
   }
   .RR_header {
     margin: 30px 10px 10px 20%;
   }
-
 }

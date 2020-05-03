@@ -5,7 +5,7 @@
 }
 
 .LoginForm {
-  border: 1px solid #CF751F;
+  border: 1px solid #cf751f;
   margin: 10px 10px;
 }
 
@@ -29,10 +29,12 @@
   border-radius: 30px;
   padding: 5px 20px;
   font-size: 16px;
+  text-align: center;
 }
 
-.Login_input:focus{
-  border: 2px solid black;
+.Login_input:focus,
+.Login_input:active {
+  border: 2px solid #0080a5;
 }
 
 .Login_button {
@@ -45,27 +47,30 @@
   width: 50px;
 }
 
-.Login_button:hover,  .Login_button:focus{
-  border-color: #CF751F;
-  color: #CF751F;
+.Login_button:hover,
+.Login_button:focus {
+  border-color: #cf751f;
+  color: #cf751f;
 }
 
 @media (min-width: 700px) {
   .Login_header {
     margin: 30px 10px 10px 20%;
   }
-  
+
   .LoginForm {
     margin: auto;
-    
   }
 
   .LoginForm_fields > div {
     flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
   .Login_label {
     margin: 0px 20px 10px 0px;
+    margin-bottom: 0px;
   }
 }
 
@@ -78,5 +83,4 @@
     margin: 30px 10px 10px 20%;
     padding-top: 30px;
   }
-
 }
