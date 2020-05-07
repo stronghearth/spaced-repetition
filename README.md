@@ -20,11 +20,11 @@ Check out our presentation deck [here](https://docs.google.com/presentation/d/1H
 Frontend: 
 - React.js
 - Mobile first responsive design with CSS3
-- Semantic HTML5
+- Semantic HTML5 <br />
 Backend: 
 - Node.js
 - Express
-- Knex
+- Knex <br />
 Database: 
 - PostgreSQL
 
