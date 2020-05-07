@@ -1,55 +1,54 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Input, Required, Label } from '../Form/Form'
-import ValidationError from '../ValidationError/ValidationError'
-import AuthApiService from '../../services/auth-api-service'
-import Button from '../Button/Button'
-import './RegistrationForm.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Input, Required, Label } from "../Form/Form";
+import ValidationError from "../ValidationError/ValidationError";
+import AuthApiService from "../../services/auth-api-service";
+import Button from "../Button/Button";
+import "./RegistrationForm.css";
 
 class RegistrationForm extends Component {
-
   static defaultProps = {
-    onRegistrationSuccess: () => { }
-  }
+    onRegistrationSuccess: () => {},
+  };
 
-  state = { 
+  state = {
     error: null,
     touched: false,
-    password: ''
-  }
+    password: "",
+  };
 
-  firstInput = React.createRef()
+  firstInput = React.createRef();
 
-  handleSubmit = ev => {
-    ev.preventDefault()
-    const { name, username, password } = ev.target
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+    const { name, username, password } = ev.target;
     AuthApiService.postUser({
       name: name.value,
       username: username.value,
       password: password.value,
     })
-      .then(user => {
-        name.value = ''
-        username.value = ''
-        password.value = ''
-        this.props.onRegistrationSuccess()
+      .then((user) => {
+        name.value = "";
+        username.value = "";
+        password.value = "";
+        this.props.onRegistrationSuccess();
       })
-      .catch(err => {
-        this.setState({ error: err.error })
-      })
-  }
+      .catch((err) => {
+        this.setState({ error: err.error });
+      });
+  };
 
   componentDidMount() {
-    this.firstInput.current.focus()
+    this.firstInput.current.focus();
   }
 
   passwordUpdated = (e) => {
-    const { value } = e.currentTarget
+    const { value } = e.currentTarget;
     this.setState({
-        touched: true,
-        password: value
-    })
-  }
+      touched: true,
+      password: value,
+    });
+  };
 
   validatePassword = () => {
     const password = this.state.password;
@@ -57,55 +56,57 @@ class RegistrationForm extends Component {
     const hasUpperCase = /([A-Z])/;
     const hasSpecialChar = /([!@#$%^&])/;
     if (password.length <= 7) {
-        return 'Password needs to be at least 8 characters long'
+      return "Password needs to be at least 8 characters long";
+    } else if (!hasNum.test(password)) {
+      return "Password must contain a number";
+    } else if (!hasUpperCase.test(password)) {
+      return "Password must contain an uppercase letter";
+    } else if (!hasSpecialChar.test(password)) {
+      return "Password must contain a special character";
     }
-    else if (!hasNum.test(password)) {
-        return 'Password must contain a number'
-    }
-    else if(!hasUpperCase.test(password)) {
-        return 'Password must contain an uppercase letter'
-    }
-    else if(!hasSpecialChar.test(password)) {
-        return 'Password must contain a special character'
-    }
-    return null
-}
+    return null;
+  };
 
   render() {
-    const { error, touched } = this.state
+    const { error, touched } = this.state;
     return (
-      <form
-        onSubmit={this.handleSubmit}
-        className='RegistrationForm'
-      >
-        <div role='alert'>
-          {error && <p className='error'>{error}</p>}
-          {touched && <ValidationError message={this.validatePassword()}/>}
+      <form onSubmit={this.handleSubmit} className="RegistrationForm">
+        <div role="alert">
+          {error && <p className="error">{error}</p>}
+          {touched && <ValidationError message={this.validatePassword()} />}
         </div>
-        <fieldset className='RegistrationForm_fields'>
+        <fieldset className="RegistrationForm_fields">
           <div>
-            <Label htmlFor='registration-name-input' className='Registration_label'>
-              Enter your name<Required />
+            <Label
+              htmlFor="registration-name-input"
+              className="Registration_label"
+            >
+              Enter your name
+              <Required />
             </Label>
             <Input
-              className='Registration_input'
+              className="Registration_input"
               ref={this.firstInput}
-              id='registration-name-input'
-              name='name'
+              id="registration-name-input"
+              name="name"
               aria-label="Enter your name"
               aria-required="true"
               aria-describedby="nameError"
               required
             />
           </div>
-          <div>
-            <Label htmlFor='registration-username-input' className='Registration_label'>
-              Choose a username<Required />
+          <div ref={this.SignUpFocus}>
+            <Label
+              htmlFor="registration-username-input"
+              className="Registration_label"
+            >
+              Choose a username
+              <Required />
             </Label>
             <Input
-              className='Registration_input'
-              id='registration-username-input'
-              name='username'
+              className="Registration_input"
+              id="registration-username-input"
+              name="username"
               aria-label="Choose a username"
               aria-required="true"
               aria-describedby="usernameError"
@@ -113,33 +114,40 @@ class RegistrationForm extends Component {
             />
           </div>
           <div>
-            <Label htmlFor='registration-password-input' className='Registration_label'>
-              Choose a password<Required />
+            <Label
+              htmlFor="registration-password-input"
+              className="Registration_label"
+            >
+              Choose a password
+              <Required />
             </Label>
             <Input
-              className='Registration_input'
-              id='registration-password-input'
-              name='password'
-              type='password'
+              className="Registration_input"
+              id="registration-password-input"
+              name="password"
+              type="password"
               aria-label="Choose a password"
               aria-required="true"
               aria-describedby="passwordError"
-              onChange={e => {this.passwordUpdated(e); this.validatePassword()}}
+              onChange={(e) => {
+                this.passwordUpdated(e);
+                this.validatePassword();
+              }}
               required
             />
           </div>
         </fieldset>
-        <footer className='Registration_footer'>
-          <Button type='submit' className='Registration_button'>
+        <footer className="Registration_footer">
+          <Button type="submit" className="Registration_button">
             Sign up
-          </Button>
-          {' '}
-          <Link to='/login' className='RR_toLogin'>
-            Already have an account?</Link>
+          </Button>{" "}
+          <Link to="/login" className="RR_toLogin">
+            Already have an account?
+          </Link>
         </footer>
       </form>
-    )
+    );
   }
 }
 
-export default RegistrationForm
+export default RegistrationForm;
