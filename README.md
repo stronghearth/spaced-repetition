@@ -21,10 +21,12 @@ Frontend:
 - React.js
 - Mobile first responsive design with CSS3
 - Semantic HTML5 <br />
+
 Backend: 
 - Node.js
 - Express
 - Knex <br />
+
 Database: 
 - PostgreSQL
 
